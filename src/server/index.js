@@ -21,6 +21,7 @@ import {
 
 import green from '@material-ui/core/colors/green';
 import red from '@material-ui/core/colors/red';
+import { CssBaseline } from '@material-ui/core';
 
 /**
  * Provides the server side rendered app. In development environment, this method is called by
@@ -67,8 +68,9 @@ export default ({ clientStats }) => async (req, res) => {
             context={context}>
             <Provider store={store}>
                 <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
-                    <MuiThemeProvider theme={theme} sheetsManager={sheetsManager}>
 
+                    <MuiThemeProvider theme={theme} sheetsManager={sheetsManager}>
+                        <CssBaseline />
                         <App />
 
                     </MuiThemeProvider>
