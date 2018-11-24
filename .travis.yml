@@ -1,0 +1,10 @@
+language: node_js
+dist: trusty
+sudo: enabled
+
+install: ./cicd/100install.sh
+before_script: ./cicd/110docker_login.sh
+script:
+  - ./cicd/200build_images.sh
+  - ./cicd/300push_images.sh
+  - ./cicd/400deploy_images.sh
